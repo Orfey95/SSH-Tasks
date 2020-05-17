@@ -3,8 +3,8 @@
 set -e
 
 # Variables
-allow_ip=$1
-workstation_ip=$2
+workstation_ip=$1
+allow_ip=$2
 
 # Deny ssh for all
 if ! grep -q "sshd : ALL" /etc/hosts.deny; then 
@@ -13,7 +13,9 @@ fi
 
 # Allow ssh for Workstation
 if ! grep -q "sshd : $workstation_ip" /etc/hosts.allow; then 
+	echo "### Workstation ###" | sudo tee -a /etc/hosts.allow 
 	echo "sshd : $workstation_ip" | sudo tee -a /etc/hosts.allow 
+	echo "###################" | sudo tee -a /etc/hosts.allow 
 fi
 
 # Allow ssh for specific ip
