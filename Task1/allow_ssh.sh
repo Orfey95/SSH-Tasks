@@ -7,7 +7,7 @@ allow_ip=$1
 workstation_ip=$2
 
 # Deny ssh for all
-if ! grep -q "sshd : ALL" /etc/hosts.allow; then 
+if ! grep -q "sshd : ALL" /etc/hosts.deny; then 
 	echo "sshd : ALL" | sudo tee -a /etc/hosts.deny 
 fi
 
