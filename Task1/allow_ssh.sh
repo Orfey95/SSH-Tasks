@@ -17,6 +17,6 @@ if ! grep -q "sshd : $workstation_ip" /etc/hosts.allow; then
 fi
 
 # Allow ssh for specific ip
-if ! grep -q "sshd : $allow_user" /etc/hosts.allow; then 
+if ! grep -q "sshd : $allow_ip" /etc/hosts.allow; then 
 	echo "sshd : $allow_ip" | sudo tee -a /etc/hosts.allow 
 fi
