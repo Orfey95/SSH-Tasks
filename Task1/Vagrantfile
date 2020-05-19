@@ -1,0 +1,53 @@
+# -*- mode: ruby -*-
+# vi: set ft=ruby :
+
+Vagrant.configure("2") do |config|
+	config.vm.define 'Workstation' do |node|
+		node.vm.box = "ubuntu/bionic64" 
+		node.vm.hostname = "EPUAKHAWO13DT81"
+		node.vm.network "private_network", ip: "172.16.2.1", 
+			virtualbox__intnet: "internal_network"
+		node.vm.synced_folder ".", "/vagrant"
+		node.vm.provider "virtualbox" do |vb|
+			vb.name = "Workstation"
+			vb.memory = 512
+			vb.cpus = 1
+		end
+	end
+	config.vm.define 'Host1' do |node|
+		node.vm.box = "ubuntu/bionic64" 
+		node.vm.hostname = "EPUAKHAWO13DT82"
+		node.vm.network "private_network", ip: "172.16.2.2", 
+			virtualbox__intnet: "internal_network"
+		node.vm.synced_folder ".", "/vagrant"
+		node.vm.provider "virtualbox" do |vb|
+			vb.name = "Host1"
+			vb.memory = 512
+			vb.cpus = 1
+		end
+	end
+	config.vm.define 'Host2' do |node|
+		node.vm.box = "ubuntu/bionic64" 
+		node.vm.hostname = "EPUAKHAWO13DT83"
+		node.vm.network "private_network", ip: "172.16.2.3", 
+			virtualbox__intnet: "internal_network"
+		node.vm.synced_folder ".", "/vagrant"
+		node.vm.provider "virtualbox" do |vb|
+			vb.name = "Host2"
+			vb.memory = 512
+			vb.cpus = 1
+		end
+	end
+	config.vm.define 'Host3' do |node|
+		node.vm.box = "ubuntu/bionic64" 
+		node.vm.hostname = "EPUAKHAWO13DT84"
+		node.vm.network "private_network", ip: "172.16.2.4", 
+			virtualbox__intnet: "internal_network"
+		node.vm.synced_folder ".", "/vagrant"
+		node.vm.provider "virtualbox" do |vb|
+			vb.name = "Host3"
+			vb.memory = 512
+			vb.cpus = 1
+		end
+	end
+end
